@@ -4,7 +4,7 @@ $(document).ready(function(){
     
     function gifSearch(term){
     
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=gx8UOgMleEwf8m4dZ2tJXwNJhSfUR8aD&q=bob+burger+" + term + "&limit=8&offset=0&rating=PG&lang=en";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=gx8UOgMleEwf8m4dZ2tJXwNJhSfUR8aD&q=bob+burger+" + term + "&limit=10&offset=0&rating=G&rating=PG&rating=PG-13&lang=en";
         
         $.ajax({
             url: queryURL,
@@ -14,7 +14,7 @@ $(document).ready(function(){
             console.log(response);
             $("#gifDiv").empty();
     
-        for (var i = 0 ; i < 8 ; i++){
+        for (var i = 0 ; i < 10 ; i++){
        
             var gifStill = $("<img>").attr("src", response.data[i].images.fixed_height_still.url).attr("data-still" , response.data[i].images.fixed_height_still.url).attr("data-animate" , response.data[i].images.fixed_height.url).attr("data-state" , "still").addClass("gif");
             $("#gifDiv").append("<p>" + "Rating: " + response.data[i].rating + "<p>" , gifStill);
